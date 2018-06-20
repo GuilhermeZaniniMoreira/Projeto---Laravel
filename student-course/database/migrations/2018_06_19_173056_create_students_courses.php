@@ -16,9 +16,7 @@ class CreateStudentsCourses extends Migration
         Schema::create('enrollment', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student_id')->unsigned();
-            $table->integer('student_id')->references('id')->on('students');
             $table->integer('course_id')->unsigned();
-            $table->integer('course_id')->references('id')->on('courses');
             $table->boolean('authorized');
             $table->timestamps();
         });

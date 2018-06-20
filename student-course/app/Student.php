@@ -8,6 +8,6 @@ class Student extends Model
 {
     public function coursgites()
     {
-        return $this->belongsToMany('App\Course');
+        return $this->belongsToMany('App\Course', 'enrollment');
     }
 }
