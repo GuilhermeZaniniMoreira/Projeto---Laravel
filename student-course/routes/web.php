@@ -17,11 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')    
+    ->name('home');
 
-Route::resource('students', 'StudentController');
-
-// rotas de administração
-Route::group(['middleware' => ['auth', 'auth.admin'], function () {
-    // Minhas rotas da administração aqui
-});
+Route::get('/admin', 'AdminController@admin')    
+    ->middleware('is_admin')    
+    ->name('admin');
