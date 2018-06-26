@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::resource('products', 'ProductController');
-
 Route::resource('students', 'StudentController');
+
+// rotas de administração
+Route::group(['middleware' => ['auth', 'auth.admin'], function () {
+    // Minhas rotas da administração aqui
+});
