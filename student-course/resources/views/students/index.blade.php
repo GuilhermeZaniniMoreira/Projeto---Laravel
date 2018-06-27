@@ -38,9 +38,12 @@
                                 <td>{{ $s->phoneNumber }}</td>
                                 <td class="btn">
                                     <a href="/students/{{ $s->id }}/edit" class="btn btn-warning">Editar</a>
+
                                     {!! Form::open(['url' => "/products/$s->id", 'method' => 'delete']) !!}
                                     {{ Form::submit('Deletar', ['class' => 'btn btn-danger']) }}
                                     {!! Form::close() !!}    
+
+                                    
                                 </td>
                             </tr>
                         @endforeach

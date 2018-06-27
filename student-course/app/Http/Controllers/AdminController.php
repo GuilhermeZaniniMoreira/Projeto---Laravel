@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -10,8 +12,23 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
-    public function admin()
+
+    // retorna os usuários que contem seu type igual a student
+    public function index()
+    { 
+        $users = DB::table('users')->where('type', 'default')->get();
+        
+        return view('admin/index', ['users' => $users]);
+    }
+
+    // opção para admin padrão dar permissão a outros usuarios
+    public function admin($id)
     {
-        return view('admin/index');
+        DB::table('users')->where('id', $id)->update(['type' => 'admin']);
+
+        $user = User::findOrFail($id);
+
+        \Session::flash('status', $user->name+' agora é administrador!');
+        return redirect('courses');
     }
 }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Student;
+use App\Course;
+use App\User;
 
 class StudentController extends Controller
 {
@@ -14,14 +17,18 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students = Student::all();
+        //$students = Student::all()->where();
+
+        $students = DB::table('users')->where('type', 'student')->get();
+
+        dd($students);
 
         return view('students/index', ['students' => $students]);
     }
 
     public function create() 
     {
-        return view('students/new',  ['students' => $students]);
+        return view('students/new');
     }
 
     public function store(Request $request)
@@ -31,7 +38,7 @@ class StudentController extends Controller
         $s->CPF = $request->input('cpf');
         $s->RG = $request->input('rg');
         $s->adress = $request->input('adress');
-        $s->phoneNumber = $request->input('number');
+        $s->phoneNumber = $request->input('phoneNumber');
         
         if ($s->save()) {
             \Session::flash('status', 'Estudante cadastrado!');
@@ -43,10 +50,10 @@ class StudentController extends Controller
     }
 
     public function edit($id) {
-        $students = Student::findOrFail($id);
-        //$states = State::pluck('nome', 'id');
 
-        return view('students.edit', ['stundent' => $studet]);
+        $student = Student::findOrFail($id);
+
+        return view('students.edit', ['student' => $student]);
     }
 
     public function update(Request $request, $id) {
@@ -72,5 +79,12 @@ class StudentController extends Controller
 
         \Session::flash('status', 'Estudante excluídp com sucesso.');
         return redirect('/students');
+    }
+
+    public function enrollment($id) {
+        $s = Student::findOrFail($id);
+        $courses = Course::pluck('name');        
+
+        return view('students.enrollment', ['student' => $student, 'courses' => $courses]);
     }
 }
