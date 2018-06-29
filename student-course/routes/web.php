@@ -20,15 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')    
     ->name('home');
 
-/*
-Route::get('/admin', 'AdminController@admin')    
-    ->middleware('is_admin')    
-    ->name('admin');
-*/
-
 // Se usuário não for admin então não será redirecionado para courses
 Route::group(['middleware' => 'is_admin'], function() {
     Route::resource('courses', 'CourseController');
     Route::resource('students', 'StudentController');
-    Route::resource('admin', 'AdminController');
+    
+    // rotas para tornar usários default em admin
+    Route::resource('admin', 'AdminController', ['only'=> ['index','admin']]);
+    Route::get('/admin/{id}', ['uses' =>'AdminController@admin']);
 });

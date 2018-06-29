@@ -23,12 +23,11 @@ class AdminController extends Controller
 
     // opção para admin padrão dar permissão a outros usuarios
     public function admin($id)
-    {
+    {   
         DB::table('users')->where('id', $id)->update(['type' => 'admin']);
+        
+        $users = DB::table('users')->where('type', 'default')->get();
 
-        $user = User::findOrFail($id);
-
-        \Session::flash('status', $user->name+' agora é administrador!');
-        return redirect('courses');
+        return view('admin/index', ['users' => $users]);
     }
 }

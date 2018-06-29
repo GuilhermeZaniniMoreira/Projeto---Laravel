@@ -17,11 +17,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        //$students = Student::all()->where();
-
         $students = DB::table('users')->where('type', 'student')->get();
-
-        dd($students);
 
         return view('students/index', ['students' => $students]);
     }

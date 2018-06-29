@@ -23,6 +23,7 @@
                         <th>Nome</th>
                         <th>Ementa</th>
                         <th>Quantidade Máxima de Alunos</th>
+                        <th>Ações</th>
                     </tr>
                     
                     @foreach($courses as $c)
@@ -32,7 +33,7 @@
                             <td>{{ $c->ementa  }}</td>
                             <td>{{ $c->qtdStudents }}</td>
                             <td class="btn">    
-                                <a href="/courses/{{ $c->id }}/edit" class="btn btn-warning">Editar</a></li>
+                                <a href="/courses/{{ $c->id }}/edit" class="btn btn-warning">Editar</a>
                                                         
                                 {!! Form::open(['url' => "/courses/$c->id", 'method' => 'delete']) !!}
                                 {{ Form::submit('Deletar', ['class' => 'btn btn-danger']) }}

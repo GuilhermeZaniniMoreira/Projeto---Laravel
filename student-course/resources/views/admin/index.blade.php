@@ -27,9 +27,7 @@
                                 <td>{{ $u->id }}</td>
                                 <td>{{ $u->name }}</td>
                                 <td class="btn">
-
-                                    <a href="/admin/{{ $u->id }}/admin" class="btn btn-warning">Admin</a> 
-                                    
+                                    <a href="/admin/{{ $u->id }}" class="btn btn-warning">Admin</a>
                                 </td>
                             </tr>
                         @endforeach
