@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     Usuários com tipo Estudante
+                    <a href="/home" class="float-right btn btn-success">Retornar ao menu</a>
                 </div>
 
                 <div class="card-body">

@@ -61,6 +61,30 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            {!! Form::label('cpf', 'CPF') !!}
+                            {!! Form::text('cpf', null, 
+                                ['class'=>'form-control', 'placeholder'=>'CPF']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('rg', 'RG') !!}
+                            {!! Form::text('rg', null, 
+                                ['class'=>'form-control', 'placeholder'=>'RG']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('adress', 'Endereço') !!}
+                            {!! Form::text('adress', null, 
+                                ['class'=>'form-control', 'placeholder'=>'Endereço']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('phone', 'Celular') !!}
+                            {!! Form::text('phone', null, 
+                                ['class'=>'form-control', 'placeholder'=>'Celular']) !!}
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

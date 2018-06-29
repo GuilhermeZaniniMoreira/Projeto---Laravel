@@ -13,11 +13,11 @@ class CreateStudentsCourses extends Migration
      */
     public function up()
     {
-        Schema::create('enrollment', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('student_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->integer('course_id')->unsigned();
-            $table->boolean('authorized');
+            $table->boolean('authorized')->default(false);
             $table->timestamps();
         });
     }

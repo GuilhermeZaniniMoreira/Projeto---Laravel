@@ -28,6 +28,9 @@ class AdminController extends Controller
         
         $users = DB::table('users')->where('type', 'default')->get();
 
+        $userAdmin = User::findOrFail($id);
+
+        \Session::flash('status', "{$userAdmin->name} agora é administrador");
         return view('admin/index', ['users' => $users]);
     }
 }

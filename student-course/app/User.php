@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'cpf', 'rg', 'adress', 'phone'
     ];
 
     /**
@@ -33,5 +33,10 @@ class User extends Authenticatable
     public function isAdmin()
     {        
         return $this->type === self::ADMIN_TYPE;    
+    }
+
+    public function courses()
+    {
+        return $this->belongsToMany('App\Course', 'enrollments');
     }
 }

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -15,6 +16,17 @@
                     @endif
 
                     You are logged in!
+
+                    <a href="/admin" class="float-right btn btn-success">Administrador</a>
+                    <a href="/students" class="float-right btn btn-success">Estudante</a>
+
+                    <style>
+                        div nav ul {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    </style>
+
                 </div>
             </div>
         </div>
