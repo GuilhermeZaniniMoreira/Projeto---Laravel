@@ -26,10 +26,10 @@
                         <th>Ementa</th>
                     </tr>
                     
-                    @foreach($enrollmentsAproved as $e)
+                    @foreach($user->courses->where('authorized', 0) as $eC)
                         <tr>
-                            <td>{{ $e->name }}</td>
-                            <td>{{ $e->ementa  }}</td>
+                            <td>{{ $eC->name }}</td>
+                            <td>{{ $eC->ementa  }}</td>
                         </tr>
                     @endforeach
                 </table>
@@ -45,10 +45,10 @@
                         <th>Ementa</th>
                     </tr>
                     
-                    @foreach($enrollmentsWaiting as $eW)
+                    @foreach($user->courses->where('authorized', 0) as $eC)
                         <tr>
-                            <td>{{ $eW->name }}</td>
-                            <td>{{ $eW->ementa  }}</td>
+                            <td>{{ $eC->name }}</td>
+                            <td>{{ $eC->ementa  }}</td>
                         </tr>
                     @endforeach
                 </table>

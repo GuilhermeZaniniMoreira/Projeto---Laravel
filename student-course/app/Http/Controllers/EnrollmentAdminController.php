@@ -16,37 +16,35 @@ class EnrollmentAdminController extends Controller
 
     public function index()
     {   
-        /*
-        $user = User::findOrFail(1);
-        $enrollmentsWaiting = $user->courses->where('authorized', false);
-        dd($enrollmentsWaiting);
-        */
-        $user = User::get();
-        $enrollmentsWaiting = $user->courses->name;
-        dd($user->course->name);
+        //$user = User::findOrFail(User::all()->id);
+        //$users = User::all();
+        
+        $courses = Course::findOrFail(1);
+        
+        //$enrollmentsWaiting = $users->courses()->where('authorized', false);
 
-        return view('enrollments/index', ['enrollmentsWaiting' => $enrollmentsWaiting]);
+        //dd($enrollmentsWaiting);
+        return view('enrollmentsAdmin/index', ['courses' => $courses]);
     }
 
     public function create() 
     {   
-        $userId = Auth::id();
-        $user = User::findOrFail($userId);
+        $users = User::pluck('name', 'id');
 
         $courses = Course::pluck('name', 'id');
     
-        return view('enrollments/new',  ['courses' => $courses]);
+        return view('enrollmentsAdmin/new',  ['users' => $users,'courses' => $courses]);
     }
 
     public function store(Request $request)
     {
         $courseId = $request->input('course');
-        $userId = Auth::id();
+        $userId =  $request->input('user');
         $user = User::findOrFail($userId);
-        $user->courses()->attach($courseId);
+        $user->courses()->attach($courseId, ['authorized' => true]);
 
-        \Session::flash('status', 'Matricula está em processo de aprovação!');
-            return redirect('enrollments');
+        \Session::flash('status', 'Matricula realizada com sucesso!');
+            return redirect('enrollmentsAdmin');
     }
 
     public function destroy($id) {

@@ -19,7 +19,7 @@
                     {!! Form::open(['url' => '/enrollmentsAdmin', 'method' => 'post']) !!}
                             
                         {{ Form::label('users', 'Estudantes') }}
-                        {{ Form::select('users', $users ) }}
+                        {{ Form::select('user', $users ) }}
 
                         <br /><br />
 

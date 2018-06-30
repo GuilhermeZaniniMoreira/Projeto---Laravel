@@ -16,17 +16,20 @@ class EnrollmentStudentController extends Controller
 
     public function index()
     {
-        //$courses = Course::all();
-
         $userId = Auth::id();
 
         $user = User::findOrFail($userId);
-
+        
+        /*
+        dd($user->courses);
         $enrollmentsAproved = $user->courses->where('authorized', true);
         $enrollmentsWaiting =  $user->courses->where('authorized', false);
 
         return view('enrollments/index', ['enrollmentsAproved' => $enrollmentsAproved,
                                           'enrollmentsWaiting' => $enrollmentsWaiting]);
+        */
+
+        return view('enrollments/index', ['user' => $user]);
     }
 
     public function create() 
@@ -44,7 +47,7 @@ class EnrollmentStudentController extends Controller
         $courseId = $request->input('course');
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $user->courses()->attach($courseId);
+        $user->courses()->attach($courseId, ['authorized' => false]);
 
         \Session::flash('status', 'Matricula está em processo de aprovação!');
             return redirect('enrollments');

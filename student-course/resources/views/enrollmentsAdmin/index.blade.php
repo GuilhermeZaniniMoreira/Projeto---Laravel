@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 Matriculas para aprovação
-                <a href="/enrollments/create" class="float-right btn btn-success">Novo matricula</a>
+                <a href="/enrollmentsAdmin/create" class="float-right btn btn-success">Novo matricula</a>
             </div>
 
             <div class="card-body">
@@ -16,8 +16,6 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                
-                <p>Matriculas aprovadas</p>
 
                 <table class="table" style="margin:auto">
 
@@ -26,10 +24,10 @@
                         <th>Curso</th>
                     </tr>
                     
-                    @foreach($enrollmentsWaiting as $eW)
+                    @foreach($courses->users->where('authorized', 0) as $eW)
                         <tr>
                             <td>{{ $eW->name }}</td>
-                            <td>{{ $eW->ementa  }}</td>
+                            <td>{{ $eW->id }}</td>
                         </tr>
                     @endforeach
                 </table>

@@ -8,6 +8,6 @@ class Course extends Model
 {
     public function users()
     {
-        return $this->belongsToMany('App\User', 'enrollments');
+        return $this->belongsToMany('App\User', 'enrollments')->withPivot('authorized')->withTimestamps();
     }
 }
