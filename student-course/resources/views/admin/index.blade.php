@@ -7,7 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     Usuários com tipo Estudante
-                    <a href="/home" class="float-right btn btn-success">Retornar ao menu</a>
+                    <a href="/courses" class="float-right btn btn-success">Cursos</a>
+                    <a href="/enrollmentsAdmin" class="float-right btn btn-success">Matriculas</a>
                 </div>
 
                 <div class="card-body">

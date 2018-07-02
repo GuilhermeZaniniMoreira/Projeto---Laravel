@@ -18,14 +18,7 @@
                     You are logged in!
 
                     <a href="/admin" class="float-right btn btn-success">Administrador</a>
-                    <a href="/students" class="float-right btn btn-success">Estudante</a>
-
-                    <style>
-                        div nav ul {
-                            display: flex;
-                            justify-content: space-between;
-                        }
-                    </style>
+                    <a href="/enrollments" class="float-right btn btn-success">Estudante</a>
 
                 </div>
             </div>

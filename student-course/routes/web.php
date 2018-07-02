@@ -25,7 +25,7 @@ Route::group(['middleware' => 'is_admin'], function() {
     Route::resource('courses', 'CourseController');
     Route::resource('students', 'StudentController');
     Route::resource('enrollmentsAdmin', 'EnrollmentAdminController');
-    
+
     // rotas para tornar usários default em admin
     Route::resource('admin', 'AdminController', ['only'=> ['index','admin']]);
     Route::get('/admin/{id}', ['uses' =>'AdminController@admin']);

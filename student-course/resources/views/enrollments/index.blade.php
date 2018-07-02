@@ -26,7 +26,7 @@
                         <th>Ementa</th>
                     </tr>
                     
-                    @foreach($user->courses->where('authorized', 0) as $eC)
+                    @foreach($user->courses->where('authorized', 1) as $eC)
                         <tr>
                             <td>{{ $eC->name }}</td>
                             <td>{{ $eC->ementa  }}</td>

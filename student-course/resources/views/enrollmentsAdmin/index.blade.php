@@ -24,10 +24,10 @@
                         <th>Curso</th>
                     </tr>
                     
-                    @foreach($courses->users->where('authorized', 0) as $eW)
+                    @foreach($courses_users as $user)
                         <tr>
-                            <td>{{ $eW->name }}</td>
-                            <td>{{ $eW->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{$courses->name}}</td>
                         </tr>
                     @endforeach
                 </table>
