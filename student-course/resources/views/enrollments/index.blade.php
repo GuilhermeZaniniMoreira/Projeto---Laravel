@@ -33,10 +33,9 @@
                         </tr>
                     @endforeach
                 </table>
-
+                <hr size="100">
                 <br>
                     <p>Matriculas aguardando revisão do administrador</p>
-                <br>
 
                 <table class="table" style="margin:auto">
 

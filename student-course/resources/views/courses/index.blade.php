@@ -8,6 +8,7 @@
             <div class="card-header">
                 Cursos
                 <a href="/courses/create" class="float-right btn btn-success">Novo curso</a>
+                <a href="/home" class="float-right btn btn-success">Retornar</a>
             </div>
 
             <div class="card-body">

@@ -23,13 +23,14 @@
                         <th>Aluno</th>
                         <th>Curso</th>
                     </tr>
-                    
-                    @foreach($courses_users as $user)
+                    <!--
+                    @foreach($courses as $course)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{$courses->name}}</td>
+        
+                            <td>{{ $course->name }}</td>
                         </tr>
                     @endforeach
+                    -->
                 </table>
 
             </div>

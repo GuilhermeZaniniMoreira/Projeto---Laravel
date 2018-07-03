@@ -16,31 +16,9 @@ class EnrollmentAdminController extends Controller
 
     public function index()
     {   
-        //$user = User::findOrFail(User::all()->id);
-        //$users = User::all();
-        
-        //$courses = Course::findOrFail(1);
-        
-        //$enrollmentsWaiting = $users->courses()->where('authorized', false);
+         $courses = Course::all();
 
-        //dd($enrollmentsWaiting);
-        /*
-        $courses = Course::findOrFail($id);
-        $courses_users = $courses->users()->paginate(5);
-        
-       $users = User::with(['courses' => function ($query) {
-            $query->where('authorized', 0);
-        
-        }])->get();
-
-        */
-
-        $users = User::all();
-
-        $courses_users = $courses->users()->paginate(5);
-
-        return view('enrollmentsAdmin/index', ['courses' => $courses], 
-                                              ['courses_users' => $courses_users]);
+         return view('enrollmentsAdmin/index', ['courses' => $courses]);
     }
 
     public function create() 
